@@ -8,7 +8,7 @@ const PartnerView = ({openView, setOpenView}) => {
         setOpenView(false)
     }
   return (
-    <Drawer width={'50%'} title="Basic Drawer" placement="right" onClose={onClose} open={openView}>
+    <Drawer width={'70%'} title="Basic Drawer" placement="right" onClose={onClose} open={openView}>
     <p>Some contents...</p>
     <p>Some contents...</p>
     <p>Some contents...</p>

@@ -7,6 +7,7 @@ import PartnerView from '../../components/PartnerView';
 import { QuestionCircleOutlined } from "@ant-design/icons";
 
 
+
 const { Column } = Table;
 
 
@@ -24,9 +25,9 @@ const Partner = () => {
   const addOpenHandler=()=>{
     setOpenView(true)
   }
-  // console.log(response, 'response')
+  console.log(response, getPartner, 'response')
   return (
-    <div>
+    <div className='user-section'>
     <Button
       loading={loading}
       onClick={addPartnerHandler}
@@ -50,9 +51,9 @@ const Partner = () => {
         key="action"
         render={(_, record) => (
           <Space size="middle" key={record.id}>
-            <a onClick={addOpenHandler}>{"Ko'rish"}</a>
-            <a onClick={addPartnerHandler}>{"Edit"}</a>
-            <Popconfirm
+            <Button  onClick={addOpenHandler}>{"Ko'rish"}</Button>
+            <Button type="primary" ghost onClick={addPartnerHandler}>{"Edit"}</Button>
+            {/* <Popconfirm
               placement="leftBottom"
               title={"Do you want to delete it"}
               icon={
@@ -66,22 +67,14 @@ const Partner = () => {
               okText={"Yes"}
               cancelText={"No"}
             >
-              <a >{"Delete"}</a>
-            </Popconfirm>
+              <Button danger>{"Delete"}</Button>
+            </Popconfirm> */}
           </Space>
         )}
       />
     </Table>
     <PartnerEdit open={open} setOpen={setOpen}/>
     <PartnerView openView={openView} setOpenView={setOpenView}/>
-    {/* <UserPanel
-      open={open}
-      setOpen={setOpen}
-      select={select}
-      setSelect={setSelect}
-      editing={editing}
-      setEditing={setEditing}
-    /> */}
   </div>
   )
 }

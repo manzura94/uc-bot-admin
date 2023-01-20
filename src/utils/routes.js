@@ -25,11 +25,11 @@ export const routes =[
         path:"/partner",
         component: <Partner/>
     },
-    {
-        id:4,
-        path:"/users",
-        component: <Users/>
-    },
+    // {
+    //     id:4,
+    //     path:"/users",
+    //     component: <Users/>
+    // },
     {
         id:5,
         path:"/logout",
@@ -56,10 +56,10 @@ export const menubar = [
       path: "/partner",
       icon: UsergroupDeleteOutlined,
       },
-      {
-        id: 4,
-        title: "Users",
-        path: "/users",
-        icon: CalendarOutlined,
-      },
+      // {
+      //   id: 4,
+      //   title: "Users",
+      //   path: "/users",
+      //   icon: CalendarOutlined,
+      // },
   ];

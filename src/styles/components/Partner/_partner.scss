@@ -1,0 +1,25 @@
+.user-section {
+  padding-left: 300px;
+  @include media(1184){
+    padding-left: 0;
+  }
+  .ant-btn {
+    @include adaptive-value('margin-left', 50, 10, 1);
+    padding: 8px 20px;
+    height: unset;
+  }
+}
+
+.ant-table-tbody {
+  .ant-table-cell:last-child {
+    float: right;
+  }
+}
+
+.ant-table-thead {
+  tr {
+    .ant-table-cell {
+      width: 30%;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.dashboard {
+  padding-left: 300px;
+
+  @include media(1184){
+    padding-left: 0;
+  }
+
+  @include adaptive-value("margin", 50, 5, 1);
+  
+  @include media(850) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .ant-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .ant-col {
+     max-width: 100%;
+     width: 100%;
+     @include adaptive-value('margin-bottom', 40, 25,1)
+    }
+  }
+}

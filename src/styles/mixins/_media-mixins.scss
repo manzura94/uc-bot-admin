@@ -1,0 +1,26 @@
+
+//  Mobile mixin default $mobile-width: 600
+@mixin mobile {
+    @media only screen and (max-width: $mobile-width) {
+        @content;
+    }
+}
+
+//  Tabet mixin default $tablet-width: 1024
+@mixin tablet {
+    @media only screen and (max-width: $tablet-width) {
+        @content;
+    }
+}
+
+@mixin media($width) {
+    @media only screen and (max-width: #{$width + px}) {
+        @content;
+    }
+}
+
+@mixin mediaMobileFirst($width) {
+    @media only screen and (min-width: #{$width + px}) {
+        @content;
+    }
+}

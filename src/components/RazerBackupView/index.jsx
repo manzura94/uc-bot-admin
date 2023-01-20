@@ -7,7 +7,7 @@ const RazerBackupCode = ({open, setOpen}) => {
         setOpen(false)
     }
   return (
-    <Drawer width={'50%'} title="Basic Drawer" placement="right" onClose={onClose} open={open}>
+    <Drawer width={'70%'} title="Basic Drawer" placement="right" onClose={onClose} open={open}>
     <p>Some contents...</p>
     <p>Some contents...</p>
     <p>Some contents...</p>

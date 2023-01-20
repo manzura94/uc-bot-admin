@@ -1,0 +1,58 @@
+.block {
+  width: 40%;
+  height: 40%;
+  padding: 40px !important;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+
+  @include media(1000){
+    width: 70%;
+  }
+
+  @include media(540){
+     width: 90%;
+  }
+
+
+  .ant-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ant-form-item-label{
+    align-self: flex-start;
+  }
+
+  .ant-btn {
+    width: 110px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .ant-input{
+    padding: 6px;
+    font-size: 18px;
+  }
+
+  .ant-input-affix-wrapper{
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .ant-input[type='password']{
+    padding: 6px;
+
+  }
+
+  .ant-form-item-control {
+    flex: unset;
+  }
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }

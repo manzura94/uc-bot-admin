@@ -9,6 +9,7 @@ const PartnerEdit = ({open, setOpen}) => {
     const closeHandler=()=>{
         setOpen(false)
     }
+    
   return (
     <Modal
     title={"Fill out the form"}

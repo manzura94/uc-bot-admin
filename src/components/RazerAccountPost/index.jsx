@@ -1,22 +1,22 @@
 import React from 'react'
-import { Modal, Form, Input, InputNumber, Button } from 'antd'
-import { usePatchRequest } from '../../hooks/request'
-import { razerAccount } from '../../utils/urls'
+import { Button, Modal, Input, Form, InputNumber } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+// import './style.css'
+import { usePostRequest } from '../../hooks/request';
+import { razerAccount } from '../../utils/urls';
 
-
-const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
-
-  const editRequest = usePatchRequest({url: `${razerAccount}/${editId}`})
+const RazerAccountPost = ({open, setOpen, getData}) => {
+  const postRequest = usePostRequest({url: razerAccount });
   const [form] = Form.useForm();
 
+  console.log(getData, 'getdata')
 
-  const editHandler =async(values)=>{
-    const { response } = await editRequest.request({
+  const postHandler =async(values)=>{
+    const { response } = await postRequest.request({
       data: { ...values },
     });
-    console.log(response)
     form.setFieldsValue(response.data);
-    setEdit(false)
+    setOpen(false)
     form.resetFields();
     getData.request()
   }
@@ -25,8 +25,10 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
     console.log("Failed:", errorInfo);
   };
 
+
     const closeHandler =()=>{
-        setEdit(false)
+        setOpen(false)
+    form.resetFields();
     }
 
   return (
@@ -34,11 +36,11 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
     className='razeraccount-modal'
     title={"Fill out the form"}
       centered
-      open={edit}
+      open={open}
       onCancel={() => closeHandler()}
       width={800}
     >
-          <Form
+      <Form
         form={form}
         name="control-hooks"
         labelCol={{
@@ -48,11 +50,11 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
           span: 16,
         }}
         className="usergroup-form"
-        onFinish={editHandler}
+        onFinish={postHandler}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-      
+
         <Form.Item
           label="Email"
           name={["email"]}
@@ -82,35 +84,40 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
         >
           <Input.Password  size="large"/>
         </Form.Item>
-        <Form.Item
-          label="balance in $"
-          name={["balance_dollar"]}
+      
+          <Form.Item 
+          label="Balance dollar"
+          name={'balance_dollar'}
           rules={[
             {
+              type: 'number',
+              message: "Input value must be a number!",
+            },
+            {
               required: true,
-              message: "Please input balance in dollar!",
+              message: "Please enter amount of dollar!",
             },
           ]}
-        >
-          <InputNumber size="large" />
-        </Form.Item>
-        <Form.Item
-          label="Status"
-          name={["balance_uc"]}
+          >
+             <InputNumber size='large' addonAfter="$" min={1} />
+          </Form.Item>
+          <Form.Item 
+          label="Balance UC"
+          name={'balance_uc'}
           rules={[
             {
-              required: true,
-              message: "Please input status !",
+              type: 'number',
+              message: "Input value must be a number!",
             },
             {
-              type: "number",
-              message: "The input is not valid E-mail!",
-            }
+              required: true,
+              message: "Please enter amount of uc!",
+            },
           ]}
-        >
-          <InputNumber size="large" />
-        </Form.Item>
-        <Form.Item
+          >
+             <InputNumber size='large' addonAfter="uc"   min={1} />
+          </Form.Item>
+          <Form.Item
           wrapperCol={{
             offset: 8,
             span: 16,
@@ -121,8 +128,8 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
           </Button>
         </Form.Item>
       </Form>
-    </Modal>
+      </Modal>
   )
 }
 
-export default RazerAccountEdit
+export default RazerAccountPost

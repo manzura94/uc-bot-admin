@@ -7,7 +7,7 @@ const { Column } = Table;
 
 const Users = () => {
   return (
-    <div>
+    <div className='user-section'>
     <Button
     //   loading={loading}
     //   onClick={addUserGroup}
@@ -16,7 +16,7 @@ const Users = () => {
         marginBottom: 16,
       }}
     >
-      Add a row
+      Qo'shish
     </Button>
     <Table
     //   dataSource={tableGroup?.map((item) => item)}

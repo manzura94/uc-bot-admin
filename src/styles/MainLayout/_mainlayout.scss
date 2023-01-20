@@ -1,0 +1,76 @@
+.ant-table-wrapper {
+  @include adaptive-value("margin", 50, 10, 1);
+}
+
+.ant-layout-sider-children {
+  background: #fff;
+}
+
+.ant-layout-has-sider {
+  height: calc(100vh - 60px);
+  position: relative !important;
+}
+
+.ant-page-header-heading-extra {
+  cursor: pointer;
+}
+
+.ant-layout-sider{
+ position: absolute !important;
+}
+
+.ant-page-header .ant-page-header-heading-sub-title{
+    font-size: 20px !important;
+    font-weight: 700;
+}
+
+.menu-side {
+    transition: all 0.3s ease-in-out;
+    position: absolute !important;
+    height: calc(100vh - 60px);
+    max-width: unset !important;
+  @include media(1184) {
+    transform: translateX(-100%);
+    position: absolute !important;
+
+  }
+
+}
+
+.open{
+    transition: all 0.3s ease-in-out;
+    transform: translateX(0%);
+    width: 100% !important;
+    position: absolute !important;
+    height: 100vh;
+    z-index: 999;
+    max-width: unset !important;
+}
+
+  .displayButton{
+    margin: 30px 10px;
+    float: right;
+    visibility: visible;
+  }
+
+  .displayNone{
+    visibility: hidden;
+  }
+
+.ant-table-cell {
+  white-space: nowrap;
+}
+
+.trigger-button {
+  display: none;
+  @include media(1184) {
+    display: inline-block;
+  }
+}
+
+.trigger {
+  display: none;
+  font-size: 37px;
+  @include adaptive-value("margin-left", 10, -10, 1);
+
+}

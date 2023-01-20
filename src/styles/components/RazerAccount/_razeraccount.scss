@@ -1,0 +1,7 @@
+.ant-table  {
+    @include media(1184){
+        width:100%; 
+        overflow-y:scroll; 
+        position:relative;
+    }
+}
