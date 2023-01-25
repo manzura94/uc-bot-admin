@@ -17,6 +17,8 @@
 
 .ant-layout-sider{
  position: absolute !important;
+ transition: all 0.3s ease-in-out !important;
+
 }
 
 .ant-page-header .ant-page-header-heading-sub-title{
@@ -25,32 +27,38 @@
 }
 
 .menu-side {
-    transition: all 0.3s ease-in-out;
-    position: absolute !important;
+    // position: absolute !important;
     height: calc(100vh - 60px);
-    max-width: unset !important;
+    max-width: 0 !important;
   @include media(1184) {
     transform: translateX(-100%);
     position: absolute !important;
-
+    height: 100vh;
+    z-index: 999;
+    width: 100% !important;
+    max-width: unset !important;
   }
 
 }
 
 .open{
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
     transform: translateX(0%);
-    width: 100% !important;
-    position: absolute !important;
-    height: 100vh;
-    z-index: 999;
-    max-width: unset !important;
+   
+    // position: absolute !important;
+   
+    // max-width: unset !important;
 }
 
   .displayButton{
-    margin: 30px 10px;
-    float: right;
-    visibility: visible;
+    display: none;
+    @include media(1184){
+      display: block;
+      margin: 30px 10px;
+      float: right;
+      visibility: visible;
+      border: none;
+    }
   }
 
   .displayNone{

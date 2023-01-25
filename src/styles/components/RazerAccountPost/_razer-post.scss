@@ -2,4 +2,32 @@
     .ant-modal-content{
          .ant-modal-footer{
     display: none !important;}}
+
+    .ant-col-offset-8{
+        margin-inline-start: 40%;
+      }
+}
+
+
+
+.ant-space-vertical{
+  width: 100%;
+}
+
+.ant-modal {
+  width: 60% !important;
+
+  @include media(950){
+    width: 80% !important;
+  }
+
+  @include media(670){
+    width: 95% !important;
+  }
+}
+
+.ant-modal-root .ant-modal-centered{
+  @include media(575){
+    overflow: hidden !important;
+  }
 }

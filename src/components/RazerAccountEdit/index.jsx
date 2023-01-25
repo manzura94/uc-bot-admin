@@ -1,44 +1,64 @@
-import React from 'react'
-import { Modal, Form, Input, InputNumber, Button } from 'antd'
-import { usePatchRequest } from '../../hooks/request'
-import { razerAccount } from '../../utils/urls'
+import React, { useState } from "react";
+import { Modal, Form, Input, InputNumber, Button, Radio, Space } from "antd";
+import { usePatchRequest } from "../../hooks/request";
+import { razerAccount } from "../../utils/urls";
+import { useEffect } from "react";
 
+const RazerAccountEdit = ({ edit, setEdit, select, getData, setSelect }) => {
 
-const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
+  const id  = select.id
 
-  const editRequest = usePatchRequest({url: `${razerAccount}/${editId}`})
+  const editRequest = usePatchRequest({ url: `${razerAccount}/${id}` });
   const [form] = Form.useForm();
+  const [value, setValue] = useState('');
 
+  
+  const onChange = (e) => {
+    console.log("radio checked", e.target.value);
+    setValue(e.target.value);
+  };
 
-  const editHandler =async(values)=>{
+  const editHandler = async (values) => {
     const { response } = await editRequest.request({
       data: { ...values },
     });
-    console.log(response)
+    console.log(response);
     form.setFieldsValue(response.data);
-    setEdit(false)
+    setEdit(false);
+    setSelect(null)
     form.resetFields();
-    getData.request()
-  }
+    getData.request();
+  };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
-    const closeHandler =()=>{
-        setEdit(false)
+  const closeHandler = () => {
+    setEdit(false);
+    setSelect(null)
+  };
+
+  useEffect(()=>{
+    if(select){
+      let count = 0
+      count++
+      console.log(count);
+      const newData = { password: select.razer_password, email: select.razer_email, balance_uc: select.balance_uc}
+      form.setFieldsValue(newData)
     }
+  },[select])
 
   return (
     <Modal
-    className='razeraccount-modal'
-    title={"Fill out the form"}
+      className="razeraccount-modal"
+      title={"Fill out the form"}
       centered
       open={edit}
       onCancel={() => closeHandler()}
       width={800}
     >
-          <Form
+      <Form
         form={form}
         name="control-hooks"
         labelCol={{
@@ -52,7 +72,6 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-      
         <Form.Item
           label="Email"
           name={["email"]}
@@ -80,35 +99,42 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
             },
           ]}
         >
-          <Input.Password  size="large"/>
+          <Input.Password size="large" />
         </Form.Item>
         <Form.Item
-          label="balance in $"
-          name={["balance_dollar"]}
-          rules={[
-            {
-              required: true,
-              message: "Please input balance in dollar!",
-            },
-          ]}
-        >
-          <InputNumber size="large" />
-        </Form.Item>
-        <Form.Item
-          label="Status"
+          label="Balance in uc"
           name={["balance_uc"]}
           rules={[
             {
               required: true,
-              message: "Please input status !",
+              message: "Please input balance !",
             },
             {
               type: "number",
-              message: "The input is not valid E-mail!",
-            }
+              message: "The input is not valid !",
+            },
           ]}
         >
           <InputNumber size="large" />
+        </Form.Item>
+        <Form.Item
+          label="Action"
+          name={["action"]}
+          rules={[
+            {
+              required: true,
+              message: "Please input action status!",
+            },
+          ]}
+        >
+          <Radio.Group onChange={onChange} value={value}>
+            <Space direction="vertical">
+              <Radio value={"UPDATE"}>Update</Radio>
+              <Radio value={"DEACTIVATE"}>Deactivate</Radio>
+              <Radio value={"MONEY_IN"}>Money In</Radio>
+              <Radio value={"MONEY_OUT"}>Money Out</Radio>
+            </Space>
+          </Radio.Group>
         </Form.Item>
         <Form.Item
           wrapperCol={{
@@ -122,7 +148,7 @@ const RazerAccountEdit = ({edit, setEdit, editId, getData}) => {
         </Form.Item>
       </Form>
     </Modal>
-  )
-}
+  );
+};
 
-export default RazerAccountEdit
+export default RazerAccountEdit;

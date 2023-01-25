@@ -6,7 +6,8 @@ export const login ="/admin/login";
 export const getPartner = "/partner";
 export const razerAccount = "/razer-account";
 export const counts = "/statistics/counts";
-export const transactions = "/statistics/transactions"
+export const transactions = "/statistics/transactions";
+export const partner ="/partner"
 
 
 

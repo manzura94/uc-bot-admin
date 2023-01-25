@@ -7,6 +7,11 @@
     @include adaptive-value('margin-left', 50, 10, 1);
     padding: 8px 20px;
     height: unset;
+
+    @include media(1184){
+      float: right;
+      @include adaptive-value('margin-right', 50, 10, 1);
+    }
   }
 }
 
@@ -21,5 +26,15 @@
     .ant-table-cell {
       width: 30%;
     }
+  }
+}
+
+.partner-add{
+  .ant-modal-footer{
+    display: none;
+  }
+
+  .ant-col-offset-8{
+    margin-inline-start: 40%;
   }
 }

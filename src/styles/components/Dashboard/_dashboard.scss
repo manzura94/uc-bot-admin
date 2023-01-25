@@ -5,6 +5,14 @@
     padding-left: 0;
   }
 
+  .ant-card{
+    height: 100%
+  }
+
+  .ant-col-8 {
+    @include adaptive-value("margin-bottom", 30, 15, 1);
+  }
+
   @include adaptive-value("margin", 50, 5, 1);
   
   @include media(850) {

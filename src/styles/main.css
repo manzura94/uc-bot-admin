@@ -44,10 +44,25 @@ input[type=number] {
   margin-left: 50px;
   padding: 8px 20px;
   height: unset;
+  margin-bottom: 20px;
 }
 @media (max-width: 1440px) {
   .user-section .ant-btn {
     margin-left: calc(
+                10px + 40 *
+                    ((100vw - 320px) / 1120)
+            );
+  }
+}
+@media only screen and (max-width: 1184px) {
+  .user-section .ant-btn {
+    float: right;
+    margin-right: 50px;
+  }
+}
+@media only screen and (max-width: 1184px) and (max-width: 1440px) {
+  .user-section .ant-btn {
+    margin-right: calc(
                 10px + 40 *
                     ((100vw - 320px) / 1120)
             );
@@ -100,7 +115,7 @@ input[type=number] {
   transition: all 0.3s ease-in-out;
   position: absolute !important;
   height: calc(100vh - 60px);
-  max-width: unset !important;
+  max-width: 0 !important;
 }
 @media only screen and (max-width: 1184px) {
   .menu-side {
@@ -110,10 +125,8 @@ input[type=number] {
 }
 
 .open {
-  transition: all 0.3s ease-in-out;
   transform: translateX(0%);
   width: 100% !important;
-  position: absolute !important;
   height: 100vh;
   z-index: 999;
   max-width: unset !important;

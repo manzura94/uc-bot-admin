@@ -1,12 +1,10 @@
-import { UsergroupDeleteOutlined,   AppstoreOutlined,
-    CalendarOutlined,  LinkOutlined,
+import { UsergroupDeleteOutlined,   AppstoreOutlined,  LinkOutlined,
    } from "@ant-design/icons";
 import Dashboard from "../pages/Dashboard";
-import Users from "../pages/Users";
 import Logout from "../pages/Logout";
 import Partner from "../pages/Partner";
 import RazerAccount from "../pages/RazerAccount";
-import Login from "../pages/Login";
+// import Login from "../pages/Login";
 
 
 export const routes =[
@@ -25,11 +23,6 @@ export const routes =[
         path:"/partner",
         component: <Partner/>
     },
-    // {
-    //     id:4,
-    //     path:"/users",
-    //     component: <Users/>
-    // },
     {
         id:5,
         path:"/logout",
@@ -55,11 +48,5 @@ export const menubar = [
       title: "Partner",
       path: "/partner",
       icon: UsergroupDeleteOutlined,
-      },
-      // {
-      //   id: 4,
-      //   title: "Users",
-      //   path: "/users",
-      //   icon: CalendarOutlined,
-      // },
+      }
   ];

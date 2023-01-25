@@ -1,7 +1,13 @@
-.ant-table  {
-    @include media(1184){
-        width:100%; 
-        overflow-y:scroll; 
-        position:relative;
-    }
+.ant-table {
+  @include media(1184) {
+    width: 100%;
+    overflow-y: scroll;
+    position: relative;
+  }
+}
+
+.ant-drawer-content-wrapper {
+  @include media(1184) {
+    width: 100% !important;
+  }
 }

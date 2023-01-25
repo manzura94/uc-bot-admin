@@ -96,8 +96,8 @@ const MainLayout = () => {
           />
 
           <Layout>
-            <Sider className={openMenu ? "open" : "menu-side"} width={300}>
-              <Button className={openMenu ? "displayButton" : "displayNone"}
+            <Sider className={`${openMenu && "open" } menu-side`} width={300}>
+              <Button className={"displayButton"}
               onClick={openMenuHandler}
               >
                <span> <img src={close} alt="close" /></span>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Modal, Input, Form, InputNumber } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-// import './style.css'
 import { usePostRequest } from '../../hooks/request';
 import { razerAccount } from '../../utils/urls';
 
@@ -9,7 +8,7 @@ const RazerAccountPost = ({open, setOpen, getData}) => {
   const postRequest = usePostRequest({url: razerAccount });
   const [form] = Form.useForm();
 
-  console.log(getData, 'getdata')
+  console.log('razeraccountpost')
 
   const postHandler =async(values)=>{
     const { response } = await postRequest.request({
