@@ -84,7 +84,7 @@ const RazerAccountPost = ({open, setOpen, getData}) => {
           <Input.Password  size="large"/>
         </Form.Item>
       
-          <Form.Item 
+          {/* <Form.Item 
           label="Balance dollar"
           name={'balance_dollar'}
           rules={[
@@ -99,7 +99,7 @@ const RazerAccountPost = ({open, setOpen, getData}) => {
           ]}
           >
              <InputNumber size='large' addonAfter="$" min={1} />
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item 
           label="Balance UC"
           name={'balance_uc'}

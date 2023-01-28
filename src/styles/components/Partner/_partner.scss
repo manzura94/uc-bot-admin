@@ -15,12 +15,6 @@
   }
 }
 
-.ant-table-tbody {
-  .ant-table-cell:last-child {
-    float: right;
-  }
-}
-
 .ant-table-thead {
   tr {
     .ant-table-cell {
@@ -36,5 +30,11 @@
 
   .ant-col-offset-8{
     margin-inline-start: 40%;
+  }
+}
+
+.viewDrawer{
+  .ant-drawer-body{
+    padding: 14px !important;
   }
 }

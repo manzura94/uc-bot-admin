@@ -11,3 +11,13 @@
     width: 100% !important;
   }
 }
+
+.backup-table{
+  .ant-table-wrapper{
+    margin: 0 !important;
+    
+  }
+  .ant-collapse-content-box{
+    padding: 0 !important;
+  }
+}
